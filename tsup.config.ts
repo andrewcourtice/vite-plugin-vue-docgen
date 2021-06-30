@@ -4,7 +4,7 @@ import type {
 
 export default {
     dts: true,
-    splitting: false,
+    clean: true,
     format: [
         'cjs',
         'esm'
