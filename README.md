@@ -1,4 +1,7 @@
 # Vite Vue-Docgen Plugin
+
+[![Test and Build](https://github.com/andrewcourtice/vite-plugin-vue-docgen/actions/workflows/test-and-build.yml/badge.svg)](https://github.com/andrewcourtice/vite-plugin-vue-docgen/actions/workflows/test-and-build.yml)
+
 This is a very simple Vite plugin that wraps the [Vue Docgen API](https://github.com/vue-styleguidist/vue-styleguidist/tree/dev/packages/vue-docgen-api) for providing metadata about Vue single file components (SFC).
 
 ## Usage
