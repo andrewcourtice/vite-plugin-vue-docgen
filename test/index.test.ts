@@ -7,10 +7,14 @@ import vueDocgenPlugin, {
 
 describe('Vite Vue-Docgen Plugin', () => {
 
-    const componentPath = path.resolve(__dirname, './component.vue');
-    const source = fs.readFileSync(componentPath, 'utf-8');
+    const basicComponentPath = path.resolve(__dirname, './basic-component.vue');
+    const setupComponentPath = path.resolve(__dirname, './setup-component.vue');
 
-    async function execute(options?: Options) {
+    function getSource(path: string) {
+        return fs.readFileSync(path, 'utf-8');
+    }
+
+    async function execute(path: string, options?: Options) {
         const {
             transform
         } = vueDocgenPlugin(options);
@@ -19,11 +23,11 @@ describe('Vite Vue-Docgen Plugin', () => {
             return;
         }
     
-        return transform.call({} as any, source, componentPath);
+        return transform.call({} as any, getSource(path), path);
     }
     
     test('Should parse and inject metadata using default options', async () => {
-        const output = await execute();
+        const output = await execute(basicComponentPath);
         expect(output).toMatch(/_sfc_main\.__docgenInfo/);
     });
     
@@ -31,11 +35,16 @@ describe('Vite Vue-Docgen Plugin', () => {
         const injectAt = '__customPropName';
         const pattern = new RegExp(`_sfc_main\.${injectAt}`);
         
-        const output = await execute({
+        const output = await execute(basicComponentPath, {
             injectAt
         });
     
         expect(output).toMatch(pattern);
+    });
+
+    test('Should handle script setup components', async () => {
+        const output = await execute(setupComponentPath);
+        expect(output).toMatch(/_sfc_main\.__docgenInfo/);
     });
 
 });

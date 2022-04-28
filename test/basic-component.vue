@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import {
-    defineComponent
+    defineComponent,
 } from 'vue';
 
 export default defineComponent({

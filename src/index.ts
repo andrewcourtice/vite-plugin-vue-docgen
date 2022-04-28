@@ -2,7 +2,11 @@ import {
     parse,
     DocGenOptions
 } from 'vue-docgen-api';
-import { createFilter, FilterPattern } from '@rollup/pluginutils';
+
+import {
+    createFilter,
+    FilterPattern
+} from '@rollup/pluginutils';
 
 import type {
     Plugin
@@ -40,10 +44,15 @@ export default function(options?: Options): Plugin {
                 return;
             }
             
-            const metaData = await parse(id, docgenOptions);
-            const metaSource = JSON.stringify(metaData);
+            let metaData = {};
 
-            return `${source};_sfc_main.${injectAt} = ${metaSource}`;
+            try {
+                metaData = await parse(id, docgenOptions);
+            } catch (error) {
+                console.warn(error);
+            } finally {
+                return `${source};_sfc_main.${injectAt} = ${JSON.stringify(metaData)}`;
+            }
         }
     };
 }
