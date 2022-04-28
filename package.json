@@ -32,7 +32,8 @@
     },
     "scripts": {
         "build": "tsup ./src/index.ts",
-        "test": "jest"
+        "test": "jest",
+        "prepublishOnly": "yarn build"
     },
     "dependencies": {
         "@rollup/pluginutils": "^4.2.1",
