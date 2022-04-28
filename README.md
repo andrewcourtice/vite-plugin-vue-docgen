@@ -40,7 +40,10 @@ const {
 const options = {
     
     /* Regex (optional) - The file path pattern to match */
-    pattern: /\.vue$/,
+    include: /\.vue$/,
+
+    /* Regex (optional) - The file path pattern to exclude */
+    exclude: /\.story\.vue$/,
 
     /* String (optional) - The property name to inject the docgen metadata at */
     injectAt: '__docgenInfo'
