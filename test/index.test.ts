@@ -19,10 +19,10 @@ describe('Vite Vue-Docgen Plugin', () => {
             transform
         } = vueDocgenPlugin(options);
     
-        if (!transform) {
+        if (!transform || typeof transform !== 'function') {
             return;
         }
-    
+        
         return transform.call({} as any, getSource(path), path);
     }
     
