@@ -1,5 +1,5 @@
 import type {
-    Options
+    Options,
 } from 'tsup';
 
 export default {
@@ -7,6 +7,6 @@ export default {
     clean: true,
     format: [
         'cjs',
-        'esm'
-    ]
+        'esm',
+    ],
 } as Options;
