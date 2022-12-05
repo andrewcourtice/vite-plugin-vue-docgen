@@ -1,20 +1,18 @@
 import {
+    DocGenOptions,
     parse,
-    DocGenOptions
 } from 'vue-docgen-api';
 
 import {
     createFilter,
-    FilterPattern
+    FilterPattern,
 } from '@rollup/pluginutils';
 
 import type {
-    Plugin
+    Plugin,
 } from 'vite';
 
 export interface Options {
-    /** @deprecated please use `include` instead */
-    pattern?: RegExp;
     include?: FilterPattern;
     exclude?: FilterPattern;
     injectAt?: string;
@@ -26,14 +24,14 @@ export default function(options?: Options): Plugin {
         injectAt,
         include,
         exclude,
-        docgenOptions
+        docgenOptions,
     } = {
-        include: options?.include || options?.pattern || /\.vue$/,
+        include: options?.include || /\.vue$/,
         injectAt: '__docgenInfo',
-        ...options
+        ...options,
     };
 
-    var filter = createFilter(include, exclude);
+    const filter = createFilter(include, exclude);
 
     return {
         name: 'vite-plugin-vue-docgen',
@@ -43,16 +41,16 @@ export default function(options?: Options): Plugin {
             if (!filter(id)) {
                 return;
             }
-            
+
             let metaData = {};
 
             try {
                 metaData = await parse(id, docgenOptions);
             } catch (error) {
                 console.warn(error);
-            } finally {
-                return `${source};_sfc_main.${injectAt} = ${JSON.stringify(metaData)}`;
             }
-        }
+
+            return `${source};_sfc_main.${injectAt} = ${JSON.stringify(metaData)}`;
+        },
     };
 }
