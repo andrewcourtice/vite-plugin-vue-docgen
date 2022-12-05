@@ -1,12 +1,12 @@
-import type {
-    Options,
+import {
+    defineConfig,
 } from 'tsup';
 
-export default {
+export default defineConfig({
     dts: true,
     clean: true,
     format: [
         'cjs',
         'esm',
     ],
-} as Options;
+});

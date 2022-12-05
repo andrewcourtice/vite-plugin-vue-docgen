@@ -38,8 +38,8 @@
         "lint": "yarn run eslint . --ignore-path .gitignore --ext .ts,.mjs --quiet"
     },
     "dependencies": {
-        "@rollup/pluginutils": "^4.2.1",
-        "vue-docgen-api": "^4.52.0"
+        "@rollup/pluginutils": "^5.0.2",
+        "vue-docgen-api": "^4.56.0"
     },
     "peerDependencies": {
         "vite": "^2.3.8"
@@ -48,10 +48,10 @@
         "@typescript-eslint/eslint-plugin": "^5.45.0",
         "@typescript-eslint/parser": "^5.45.0",
         "eslint": "^8.29.0",
-        "tsup": "^6.2.3",
-        "typescript": "^4.8.3",
-        "vite": "^3.1.0",
+        "tsup": "^6.5.0",
+        "typescript": "^4.9.3",
+        "vite": "^3.2.4",
         "vitest": "^0.25.3",
-        "vue": "^3.2.39"
+        "vue": "^3.2.45"
     }
 }
