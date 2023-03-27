@@ -39,7 +39,7 @@ describe('Vite Vue-Docgen Plugin', () => {
 
     test('Should parse and inject metadata at the specified property name', async () => {
         const injectAt = '__customPropName';
-        const pattern = new RegExp(`_sfc_main\.${injectAt}`);
+        const pattern = new RegExp(`_sfc_main.${injectAt}`);
 
         const output = await execute(basicComponentPath, {
             injectAt,

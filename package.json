@@ -1,5 +1,5 @@
 {
-    "packageManager": "yarn@3.3.0",
+    "packageManager": "yarn@3.5.0",
     "name": "vite-plugin-vue-docgen",
     "version": "0.3.0",
     "description": "A simple vue-docgen plugin for Vite",
@@ -39,19 +39,19 @@
     },
     "dependencies": {
         "@rollup/pluginutils": "^5.0.2",
-        "vue-docgen-api": "^4.56.0"
+        "vue-docgen-api": "^4.64.1"
     },
     "peerDependencies": {
         "vite": "^2.3.8"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.45.0",
-        "@typescript-eslint/parser": "^5.45.0",
-        "eslint": "^8.29.0",
-        "tsup": "^6.5.0",
-        "typescript": "^4.9.3",
-        "vite": "^3.2.4",
-        "vitest": "^0.25.3",
-        "vue": "^3.2.45"
+        "@typescript-eslint/eslint-plugin": "^5.56.0",
+        "@typescript-eslint/parser": "^5.56.0",
+        "eslint": "^8.36.0",
+        "tsup": "^6.7.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.2.1",
+        "vitest": "^0.29.7",
+        "vue": "^3.2.47"
     }
 }
