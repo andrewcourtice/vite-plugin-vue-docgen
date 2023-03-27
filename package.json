@@ -1,7 +1,7 @@
 {
     "packageManager": "yarn@3.5.0",
     "name": "vite-plugin-vue-docgen",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "A simple vue-docgen plugin for Vite",
     "author": "Andrew Courtice",
     "license": "ISC",
