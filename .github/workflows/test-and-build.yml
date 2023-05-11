@@ -19,27 +19,14 @@ jobs:
       - name: Prepare NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-
-      - name: Get Yarn Cache Path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      # Node module and yarn cache
-      - name: Yarn Cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-docs-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-docs-
-          
+          node-version: 18.x
+          cache: 'npm'
+ 
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
         
       - name: Run Tests
-        run: yarn test
+        run: npm run test
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v3
@@ -50,32 +37,19 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Prepare NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-
-      - name: Get Yarn Cache Path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      # Node module and yarn cache
-      - name: Yarn Cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-docs-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-docs-
+          node-version: 18.x
+          cache: 'npm'
           
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
         
       - name: Run Build
-        run: yarn build
+        run: npm run build
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
