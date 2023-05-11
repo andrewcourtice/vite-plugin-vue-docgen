@@ -3738,7 +3738,7 @@ __metadata:
     vue: ^3.2.47
     vue-docgen-api: ^4.71.0
   peerDependencies:
-    vite: ^2.3.8
+    vite: ">2.0"
   languageName: unknown
   linkType: soft
 
