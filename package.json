@@ -34,7 +34,7 @@
     "scripts": {
         "build": "tsup ./src/index.ts",
         "test": "vitest",
-        "prepublishOnly": "build",
+        "prepublishOnly": "npm run build",
         "lint": "eslint . --ignore-path .gitignore --ext .ts,.mjs --quiet"
     },
     "dependencies": {
