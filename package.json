@@ -34,8 +34,8 @@
     "scripts": {
         "build": "tsup ./src/index.ts",
         "test": "vitest",
-        "prepublishOnly": "yarn build",
-        "lint": "yarn run eslint . --ignore-path .gitignore --ext .ts,.mjs --quiet"
+        "prepublishOnly": "build",
+        "lint": "eslint . --ignore-path .gitignore --ext .ts,.mjs --quiet"
     },
     "dependencies": {
         "@rollup/pluginutils": "^5.0.2",
